@@ -1,0 +1,62 @@
+/* Set the min-width so that when the window is resized the look will stay consistant */
+
+.charsheet {
+    background-color: rgb(58, 85, 100);
+    min-width: 800px;
+}
+
+.sheet-grid-section{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 250px 30% 30%;
+  }
+
+  /* Universal styling applied to all elements of these types */
+
+h2 {
+    font-size: 150%;
+    margin-bottom: 10px;
+    text-align: left;
+    color: rgb(250, 250, 250);
+}
+
+label {
+    display: inline-block;
+    width: 31%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(250, 250, 250);
+}
+label.simple {
+    width: 10px;
+}
+
+input {
+    display: inline-block;
+    width: 165px;
+}
+
+span {
+    color: rgb(250, 250, 250);
+}
+span.round {
+    border: 2px solid rgb(250, 250, 250);
+    border-radius: 5px;
+}
+
+img {
+    max-height: 100px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Targetted styling that only effects elements with these classes */
+input.sheet-short {
+    width: 100px;
+}
+
+select.sheet-dtype {
+    vertical-align: top;
+    width: 65px;
+}

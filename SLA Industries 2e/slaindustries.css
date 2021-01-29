@@ -8,10 +8,51 @@
 .sheet-grid-section{
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 250px 30% 30%;
-  }
+}
 
-  /* Universal styling applied to all elements of these types */
+.sheet-clearencecard {
+    border: 1px solid rgb(250, 250, 250);
+    border-radius: 8px;
+    margin: 1px 1px 1px 1px;
+    padding: 1px 3px 1px 3px;
+}
+
+.sheet-slalogo {
+    border: 1px solid rgb(250, 250, 250);
+    border-radius: 8px;
+    margin: 1px 1px 1px 1px;
+    padding: 1px 3px 1px 3px;
+}
+
+.sheet-ratings {
+    border: 1px solid rgb(250, 250, 250);
+    border-radius: 8px;
+    margin: 1px 1px 1px 1px;
+    padding: 1px 3px 1px 3px;
+}
+
+.sheet-stats {
+    border: 1px solid rgb(250, 250, 250);
+    border-radius: 8px;
+    margin: 1px 1px 1px 1px;
+    padding: 1px 3px 1px 3px;
+}
+
+.sheet-skills {
+    border: 1px solid rgb(250, 250, 250);
+    border-radius: 8px;
+    margin: 1px 1px 1px 1px;
+    padding: 1px 3px 1px 3px;
+}
+
+.sheet-traits {
+    border: 1px solid rgb(250, 250, 250);
+    border-radius: 8px;
+    margin: 1px 1px 1px 1px;
+    padding: 1px 3px 1px 3px;
+}
+
+/* Universal styling applied to all elements of these types */
 
 h2 {
     font-size: 150%;
@@ -20,15 +61,19 @@ h2 {
     color: rgb(250, 250, 250);
 }
 
+h3 {
+    font-size: 100%;
+    text-align: left;
+    color: darkgray;
+}
+
 label {
     display: inline-block;
     width: 31%;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(250, 250, 250);
 }
-label.simple {
-    width: 10px;
-}
+
 
 input {
     display: inline-block;
@@ -38,13 +83,10 @@ input {
 span {
     color: rgb(250, 250, 250);
 }
-span.round {
-    border: 2px solid rgb(250, 250, 250);
-    border-radius: 5px;
-}
 
 img {
     max-height: 100px;
+
 }
 
 textarea {
@@ -52,11 +94,48 @@ textarea {
 }
 
 /* Targetted styling that only effects elements with these classes */
-input.sheet-short {
-    width: 100px;
+input.sheet-skillname {
+    width: 125px;
 }
 
-select.sheet-dtype {
+select.sheet-stattype {
     vertical-align: top;
-    width: 65px;
+    width: 70px;
+}
+
+img.sheet-slalogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+.sheet-inputactionrolls {
+    display: inline-block;
+    font-size: 80%;
+    padding: 1px;
+    margin: 0px 10px;
+    box-sizing: border-box;
+}
+
+.sheet-labelactionrolls {
+    width: 25%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 80%;
+    color: darkgray;
+    font-style: italic;
+}
+
+.sheet-selectactionrolls {
+    width: 120px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 80%;
+    height: 22px;
+    font-style: italic;
+}
+
+.sheet-selectrace {
+    vertical-align: top;
+    width: 120px;
+    padding: 0px;
+    margin: 0.5px 0px 2px -4px;
 }

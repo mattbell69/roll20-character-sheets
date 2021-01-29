@@ -1,44 +1,67 @@
 <div class="grid-section">
+
     <div class="clearencecard">
-        <h2>CLEARENCE CARD</h2>
+        <h2>CLEARANCE CARD</h2>
         <label>Name:</label><input type="text" name="attr_character_name" />
-        <label>Race:</label><input type="text" name="attr_race" />
+        <label>Race:</label>
+        <select class="sheet-selectrace" name="attr_race">
+            <option value="0">Human</option>
+            <option value="1">Stomer</option>
+            <option value="2">Frother</option>
+        </select>
         <label>Package:</label><input type="text" name="attr_package" />
         <label>Squad:</label><input type="text" name="attr_squad" />
         <label>SCL:</label><input type="number" name="attr_scl" />
     </div>
     <div class="slalogo">
-        <img src="https://1drv.ms/u/s!Aqj9T_w0jIRJgeECtLnTY1NUPXblqw?e=VEYUYm" />
+        <img src="https://github.com/mattbell69/roll20-character-sheets/blob/sla-industries-2e/SLA%20Industries%202e/images/slaLogo.webp?raw=true" />
+        <h3>Action Rolls</h3>
+        <label class="sheet-labelactionrolls">Difficulty:</label>
+        <select class="sheet-selectactionrolls" name="attr_difficulty">
+            <option value="0">Mundane</option>
+            <option value="4">Simple</option>
+            <option value="7">Challenging</option>
+            <option value="10">Complex / Combat</option>
+            <option value="13">Strenuous</option>
+            <option value="16">Insane</option>
+        </select>
+        <label class="sheet-labelactionrolls">Success Bonus:</label><input class="inputactionrolls" type="number" value="0" name="attr_sucbonus" />
+        <label class="sheet-labelactionrolls">Skill Bonus:</label><input class="inputactionrolls" type="number" value="0" name="attr_skillbonus" /><br />
+        <label class="sheet-labelactionrolls">Defence:</label>
+        <select class="sheet-selectactionrolls" name="attr_defence">
+            <option value="0" selected>none</option>
+            <option value="-1">1</option>
+            <option value="-2">2</option>
+        </select>
     </div>
     <div class="ratings">
         <h2>RATINGS POINTS</h2>
-        <span class="round">
-            <label>Body:</label><input type="number" name="attr_body" /><br />
-            <label>Brains:</label><input type="number" name="attr_brains" /><br />
-            <label>Bravado:</label><input type="number" name="attr_bravado" /><br />
-        </span>
+        <label>Body:</label><input type="number" name="attr_body" /><br />
+        <label>Brains:</label><input type="number" name="attr_brains" /><br />
+        <label>Bravado:</label><input type="number" name="attr_bravado" /><br />
         <label>Initiative:</label><input type="number" name="attr_initiative" /><button type="roll" name="roll_initiative" value='&{template:default} {{name=@{character_name}}} {{Initiative=[[{1d10 + @{initiative}} &{tracker}]] }}'></button><br />
         <label>Luck:</label><input type="number" name="attr_luck" /><span>&nbsp;/&nbsp;</span><input type="number" name="attr_luckmax" />
     </div>
-    <div class="stats">
+
+    <div class="sheet-stats">
         <h2>STATS</h2>
         <label>STR:</label><input type="number" name='attr_str' /><br />
         <label>DEX:</label><input type="number" name='attr_dex' /><br />
         <label>KNOW:</label><input type="number" name='attr_know' /><br />
         <label>CONC:</label><input type="number" name='attr_conc' /><br />
         <label>CHA:</label><input type="number" name='attr_cha' /><br />
-        <label>COOL:</label><input type="number" name='attr_cool' /><br />
+        <label>COOL:</label><input type="number" name='attr_cool' /><hr />
         <h2>MOVEMENT</h2>
         <label>Closing:</label><input type="number" name="attr_closing" /><br />
         <label>Rushing:</label><input type="number" name="attr_rushing" /><br />
         <label>Encum:</label><input type="number" name="attr_encumberance" />
     </div>
-    <div class="skills">
+    <div class="sheet-skills">
         <h2>SKILLS</h2>
         <fieldset class="repeating_skills">
-            <input type="text" name="attr_skillname" class="sheet-short" />
+            <input type="text" name="attr_skillname" class="sheet-skillname" />
             <input type="number" name="attr_skillrank" />
-            <select name="attr_statskill" class="sheet-dtype">
+            <select name="attr_statskill" class="sheet-stattype">
                 <option value="@{str}">STR</option>
                 <option value="@{dex}">DEX</option>
                 <option value="@{know}">KNOW</option>
@@ -49,7 +72,7 @@
             <button type='roll' name='roll_skilltest' value='?{Difficulty|Mundane,0|Simple,4|Challenging,7|Complex,10|Strenuous,13|Insane,16} &{template:default} {{name=@{character_name} - @{skillname}}} {{Success Die=[[{1d10 + @{skillrank} + @{statskill}}>?{Difficulty}]]}} {{Margin Dice=[[{(1+@{skillrank})d10 + @{skillrank} + @{statskill}}>?{Difficulty}]]}}'></button>
         </fieldset>
     </div>
-    <div class="traits">
+    <div class="sheet-traits">
         <h2>TRAITS</h2>
         <fieldset class="repeating_traits">
             <input type="text" name="attr_traitname" />
@@ -62,4 +85,6 @@
             <input type="number" name="attr_drugrank" value="qty" /><br />
         </fieldset>
     </div>
+
+
 </div>

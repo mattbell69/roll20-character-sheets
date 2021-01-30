@@ -5,9 +5,19 @@
     min-width: 800px;
 }
 
-.sheet-grid-section{
+.sheet-singlerow {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 100%;
+}
+
+.sheet-grid-section1{
+    display: grid;
+    grid-template-columns: 33% 34% 33%;
+}
+
+.sheet-grid-section2{
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
 .sheet-clearencecard {
@@ -52,11 +62,24 @@
     padding: 1px 3px 1px 3px;
 }
 
+.sheet-weapons {
+    border: 1px solid rgb(250, 250, 250);
+    border-radius: 8px;
+    margin: 1px 1px 1px 1px;
+    padding: 1px 3px 1px 3px;
+}
+
+.sheet-notes {
+    border: 1px solid rgb(250, 250, 250);
+    border-radius: 8px;
+    margin: 1px 1px 1px 1px;
+    padding: 1px 3px 1px 3px;
+}
 /* Universal styling applied to all elements of these types */
 
 h2 {
     font-size: 150%;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     text-align: left;
     color: rgb(250, 250, 250);
 }
@@ -65,6 +88,10 @@ h3 {
     font-size: 100%;
     text-align: left;
     color: darkgray;
+}
+
+hr {
+    margin: 5px;
 }
 
 label {
@@ -94,16 +121,19 @@ textarea {
 }
 
 /* Targetted styling that only effects elements with these classes */
-input.sheet-skillname {
-    width: 125px;
-}
 
-select.sheet-stattype {
+.sheet-selectrace {
     vertical-align: top;
-    width: 70px;
+    width: 120px;
+    padding: 0px;
+    margin: 0.5px 0px 2px -4px;
 }
 
-img.sheet-slalogo {
+.sheet-scl {
+    width: 60px;
+}
+
+.sheet-slalogo {
     display: block;
     margin-left: auto;
     margin-right: auto 
@@ -133,9 +163,72 @@ img.sheet-slalogo {
     font-style: italic;
 }
 
-.sheet-selectrace {
+.sheet-statlabel {
+    display: inline-block;
+    width: 40px;
+}
+
+.sheet-statinput {
+    margin: 0px 20px 0px 0px;
+}
+
+.sheet-skillname {
+    width: 250px;
+}
+
+.sheet-skillstat {
     vertical-align: top;
-    width: 120px;
-    padding: 0px;
-    margin: 0.5px 0px 2px -4px;
+    width: 70px;
+}
+
+.sheet-traitname {
+    width: 350px;
+}
+
+.sheet-drugname {
+    width: 350px;
+}
+
+.sheet-movementlabel {
+    display: inline-block;
+    width: 50px;
+}
+
+.sheet-movementinput {
+    margin: 0px 20px 0px 0px;
+}
+
+.sheet-wpnnamelabel {
+    width: 200px;
+}
+.sheet-wpnname {
+    width: 200px;
+}
+
+.sheet-wpndmglabel {
+    width: 40px;
+}
+.sheet-wpndmg {
+    width: 50px;
+}
+
+.sheet-wpnmindmglabel {
+    width: 30px;
+}
+.sheet-wpnmindmg {
+    width: 10px;
+}
+
+.sheet-wpnadlabel {
+    width: 30px;
+}
+.sheet-wpnad {
+    width: 10px;
+}
+
+
+
+
+.sheet-notes {
+    width: 99%;
 }

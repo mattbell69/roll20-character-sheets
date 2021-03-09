@@ -204,10 +204,10 @@ textarea {
 }
 
 .sheet-wpnnamelabel {
-    width: 200px;
+    width: 340px;
 }
 .sheet-wpnname {
-    width: 200px;
+    width: 340px;
 }
 
 .sheet-wpndmglabel {
@@ -231,7 +231,47 @@ textarea {
     width: 10px;
 }
 
+.sheet-wpnweightlabel {
+    width: 40px;
+}
+.sheet-wpnweight {
+    width: 10px;
+}
 
+.sheet-wpnroflabel {
+    width: 30px;
+}
+.sheet-wpnrof {
+    width: 30px;
+}
+
+.sheet-wpnrecoillabel {
+    width: 40px;
+}
+.sheet-wpnrecoil {
+    width: 30px;
+}
+
+.sheet-wpnrangelabel {
+    width: 40px;
+}
+.sheet-wpnrange {
+    width: 30px;
+}
+
+.sheet-wpncliplabel {
+    width: 30px;
+}
+.sheet-wpnclip {
+    width: 30px;
+}
+
+.sheet-wpnclicostlabel {
+    width: 30px;
+}
+.sheet-wpnclipcost {
+    width: 30px;
+}
 
 
 .sheet-notes {

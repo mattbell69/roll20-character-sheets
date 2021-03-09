@@ -79,7 +79,7 @@
                 <option value="@{cha}">CHA</option>
                 <option value="@{cool}">COOL</option>
             </select>
-            <button type='roll' name='roll_skilltest' value='?{Difficulty|Mundane,0|Simple,4|Challenging,7|Complex,10|Strenuous,13|Insane,16} &{template:default} {{name=@{character_name} - @{skillname}}} {{Success Die=[[{1d10 + @{skillrank} + @{statskill}}>?{Difficulty}]]}} {{Margin Dice=[[{(1+@{skillrank})d10 + @{skillrank} + @{statskill}}>?{Difficulty}]]}}'></button>
+            <button type='roll' name='roll_skilltest' value='&{template:default} {{name=@{character_name} - @{skillname}}} {{Success Die=[[{1d10 + @{skillrank} + @{statskill}}>@{difficulty}]]}} {{Margin Dice=[[{(1+@{skillrank})d10 + @{skillrank} + @{statskill}}>@{difficulty}]]}}'></button>
         </fieldset>
     </div>
     <div class="sheet-traits">

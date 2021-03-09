@@ -4,5 +4,5 @@
 	"authors": "Matt B.",
 	"roll20userid": "1661925",
 	"preview": "images/previewSheet.png",
-	"instructions": "**This is a test**\n\nYou can put Markdown-formatted instructions here for how to use your sheet. Please try to keep it moderately-short (500 characters or less is preferred)."
+	"instructions": "This is a simple Fan based sheet create so SLA Industries can be played on Roll20\n\nThere is no APIs required, all rolls should work from the sheet. There is a centre box at the top where you set the parameters for the roll before clicking on the dice."
 }

@@ -204,10 +204,17 @@ textarea {
 }
 
 .sheet-wpnnamelabel {
-    width: 340px;
+    width: 298px;
 }
 .sheet-wpnname {
-    width: 340px;
+    width: 300px;
+}
+
+.sheet-wpnskillranklabel {
+    width: 30px;
+}
+.sheet-wpnskillrank {
+    width: 30px;
 }
 
 .sheet-wpndmglabel {
@@ -215,6 +222,7 @@ textarea {
 }
 .sheet-wpndmg {
     width: 50px;
+    text-align: center;
 }
 
 .sheet-wpnmindmglabel {
@@ -239,17 +247,10 @@ textarea {
 }
 
 .sheet-wpnroflabel {
-    width: 30px;
-}
-.sheet-wpnrof {
-    width: 30px;
-}
-
-.sheet-wpnrecoillabel {
     width: 40px;
 }
-.sheet-wpnrecoil {
-    width: 30px;
+.sheet-wpnrof {
+    width: 50px;
 }
 
 .sheet-wpnrangelabel {

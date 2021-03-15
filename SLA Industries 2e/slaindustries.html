@@ -62,9 +62,29 @@
 <div class="sheet-grid-section2">
     <div class="sheet-skills">
         <h2>SKILLS</h2>
+        <label class="sheet-fixedskillname">Detect</label>
+        <input type="number" name="attr_detectRank" value="0" />
+        <label class="sheet-fixedskillstat">KNOW</label>
+        <button type='roll' name='roll_detecttest' value='&{template:default} {{name=@{character_name} - Detect}} {{Success Die=[[{1d10 + @{detectrank} + @{know}}>@{difficulty}]]}} {{Margin Dice=[[{(1+@{detectrank})d10 + @{detectrank} + @{know}}>@{difficulty}]]}}'></button>
+
+        <label class="sheet-fixedskillname">Pistol</label>
+        <input type="number" name="attr_pistolRank" value="0" />
+        <label class="sheet-fixedskillstat">DEX</label>
+        <button type='roll' name='roll_pistoltest' value='&{template:default} {{name=@{character_name} - Pistol}} {{Success Die=[[{1d10 + @{pistolrank} + @{dex}}>10]]}} {{Margin Dice=[[{(1+@{pistolrank})d10 + @{pistolrank} + @{dex}}>10]]}}'></button>
+
+        <label class="sheet-fixedskillname">Rifle</label>
+        <input type="number" name="attr_rifleRank" value="0" />
+        <label class="sheet-fixedskillstat">DEX</label>
+        <button type='roll' name='roll_rifletest' value='&{template:default} {{name=@{character_name} - Rifle}} {{Success Die=[[{1d10 + @{riflerank} + @{dex}}>10]]}} {{Margin Dice=[[{(1+@{riflerank})d10 + @{riflerank} + @{dex}}>10]]}}'></button>
+
+        <label class="sheet-fixedskillname">Unarmed Combat</label>
+        <input type="number" name="attr_unarmedcombatRank" value="0" />
+        <label class="sheet-fixedskillstat">STR</label>
+        <button type='roll' name='roll_unarmedcombattest' value='&{template:default} {{name=@{character_name} - Unarmed Combat}} {{Success Die=[[{1d10 + @{unarmedcombatrank} + @{str}}>10]]}} {{Margin Dice=[[{(1+@{unarmedcombatrank})d10 + @{unarmedcombatrank} + @{str}}>10]]}}'></button>
+
         <fieldset class="repeating_skills">
             <input type="text" name="attr_skillname" class="sheet-skillname" />
-            <input type="number" name="attr_skillrank" />
+            <input type="number" name="attr_skillrank" value="0" />
             <select class="sheet-skillstat" name="attr_statskill">
                 <option value="@{str}">STR</option>
                 <option value="@{dex}">DEX</option>

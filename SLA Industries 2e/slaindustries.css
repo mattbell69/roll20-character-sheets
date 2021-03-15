@@ -168,6 +168,19 @@ textarea {
     font-style: italic;
 }
 
+
+
+.sheet-fixedskillname {
+    width: 240px;
+}
+
+.sheet-fixedskillstat {
+    vertical-align: top;
+    width: 55px;
+    padding-left: 5px;
+    padding-top: 4px;
+}
+
 .sheet-statlabel {
     display: inline-block;
     width: 40px;

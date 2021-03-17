@@ -246,11 +246,11 @@ textarea {
 }
 
 .sheet-wpndmglabel {
-    width: 40px;
+    width: 50px;
 }
 .sheet-wpndmg {
-    width: 50px;
-    text-align: center;
+    width: 60px;
+    text-align: left;
 }
 
 .sheet-wpnmindmglabel {
@@ -308,7 +308,7 @@ textarea {
 }
 
 /*Roll Templates*/
-.sheet-rolltemplate-slaind .sheet-template-container {
+.sheet-rolltemplate-slaskill .sheet-template-container {
     background-color: rgb(58, 85, 100);
     border: 1px solid rgb(250, 250, 250);
     border-radius: 8px;
@@ -316,31 +316,36 @@ textarea {
     padding: 1px 3px 1px 3px;
     display: block;
 }
-.sheet-rolltemplate-slaind .sheet-template-header {
+.sheet-rolltemplate-slaskill .sheet-template-header {
     font-size: 150%;
     margin: 2px;
     text-align: left;
     color: rgb(250, 250, 250);
 }
-.sheet-rolltemplate-slaind .sheet-template-subheader {
+.sheet-rolltemplate-slaskill .sheet-template-subheader {
     margin: 2px;
     padding-bottom: 10px;
     font-style: italic;
     text-align: left;
     color: rgb(250, 250, 250);
 }
-.sheet-rolltemplate-slaind .sheet-template-inner {
+.sheet-rolltemplate-slaskill .sheet-template-inner {
     text-align: center;
 }
-.sheet-rolltemplate-slaind table {
+.sheet-rolltemplate-slaskill table {
     width: 100%;
 }
-.sheet-rolltemplate-slaind th {
+.sheet-rolltemplate-slaskill th {
     padding-bottom: 5px;
     text-align: center;
     color: rgb(250, 250, 250);
 }
-.sheet-rolltemplate-slaind td {
+.sheet-rolltemplate-slaskill td {
+    padding-bottom: 5px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+.sheet-rolltemplate-initvalue {
     padding-bottom: 5px;
     text-align: center;
     color: rgb(0, 0, 0);

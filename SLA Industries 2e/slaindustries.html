@@ -41,7 +41,7 @@
         <label>Brains:</label><input type="number" name="attr_brains" /><br />
         <label>Bravado:</label><input type="number" name="attr_bravado" /><br />
         <hr />
-        <label>Initiative:</label><input type="number" name="attr_initiative" readonly /><button type="roll" name="roll_initiative" class="d10-dice" value='&{template:default} {{name=@{character_name}}} {{Initiative=[[{1d10 + @{initiative}} &{tracker}]] }}'></button><br />
+        <label>Initiative:</label><input type="number" name="attr_initiative" readonly /><button type="roll" name="roll_initiative" class="d10-dice" value='&{template:slaskill} {{skillname=Initiative}} {{charname=@{character_name}}} {{initiative=[[{1d10+@{initiative}} &{tracker}]] }}'></button><br />
         <label>Luck/Flux:</label><input type="number" name="attr_luck" /><span>&nbsp;/&nbsp;</span><input type="number" name="attr_luckmax" />
         <label>Encum:</label><input type="number" name="attr_encum" /><span>&nbsp;/&nbsp;</span><input type="number" name="attr_encummax" />
     </div>
@@ -65,22 +65,22 @@
         <label class="sheet-fixedskillname">Detect</label>
         <input type="number" name="attr_detectRank" value="0" />
         <label class="sheet-fixedskillstat">KNOW</label>
-        <button type='roll' name='roll_detecttest' class='d10-dice' value='&{template:slaind} {{skillname=Detect}} {{charname=@{character_name}}} {{success=[[{1d10 + @{detectrank} + @{know}}>@{difficulty}]]}} {{margin=[[{(1+@{detectrank})d10 + @{detectrank} + @{know}}>@{difficulty}]]}}'></button>
+        <button type='roll' name='roll_detecttest' class='d10-dice' value='&{template:slaskill} {{skillname=Detect}} {{charname=@{character_name}}} {{success=[[{1d10 + @{detectrank} + @{know}}>@{difficulty}]]}} {{margin=[[{(1+@{detectrank})d10 + @{detectrank} + @{know}}>@{difficulty}]]}}'></button>
 
         <label class="sheet-fixedskillname">Pistol</label>
         <input type="number" name="attr_pistolRank" value="0" />
         <label class="sheet-fixedskillstat">DEX</label>
-        <button type='roll' name='roll_pistoltest' class='d10-dice' value='&{template:default} {{name=@{character_name} - Pistol}} {{Success Die=[[{1d10 + @{pistolrank} + @{dex}}>10]]}} {{Margin Dice=[[{(1+@{pistolrank})d10 + @{pistolrank} + @{dex}}>10]]}}'></button>
+        <button type='roll' name='roll_pistoltest' class='d10-dice' value='&{template:slaskill} {{skillname=Pistol}} {{charname=@{character_name}}} {{success=[[{1d10 + @{pistolrank} + @{dex}}>10]]}} {{margin=[[{(1+@{pistolrank})d10 + @{pistolrank} + @{dex}}>10]]}}'></button>
 
         <label class="sheet-fixedskillname">Rifle</label>
         <input type="number" name="attr_rifleRank" value="0" />
         <label class="sheet-fixedskillstat">DEX</label>
-        <button type='roll' name='roll_rifletest' class='d10-dice' value='&{template:default} {{name=@{character_name} - Rifle}} {{Success Die=[[{1d10 + @{riflerank} + @{dex}}>10]]}} {{Margin Dice=[[{(1+@{riflerank})d10 + @{riflerank} + @{dex}}>10]]}}'></button>
+        <button type='roll' name='roll_rifletest' class='d10-dice' value='&{template:slaskill} {{skillname=Rifle}} {{charname=@{character_name}}} {{success=[[{1d10 + @{riflerank} + @{dex}}>10]]}} {{margin=[[{(1+@{riflerank})d10 + @{riflerank} + @{dex}}>10]]}}'></button>
 
         <label class="sheet-fixedskillname">Unarmed Combat</label>
         <input type="number" name="attr_unarmedcombatRank" value="0" />
         <label class="sheet-fixedskillstat">STR</label>
-        <button type='roll' name='roll_unarmedcombattest' class='d10-dice' value='&{template:default} {{name=@{character_name} - Unarmed Combat}} {{Success Die=[[{1d10 + @{unarmedcombatrank} + @{str}}>10]]}} {{Margin Dice=[[{(1+@{unarmedcombatrank})d10 + @{unarmedcombatrank} + @{str}}>10]]}}'></button>
+        <button type='roll' name='roll_unarmedcombattest' class='d10-dice' value='&{template:slaskill} {{skillname=Unarmed Combat}} {{charname=@{character_name}}} {{success=[[{1d10 + @{unarmedcombatrank} + @{str}}>10]]}} {{margin=[[{(1+@{unarmedcombatrank})d10 + @{unarmedcombatrank} + @{str}}>10]]}}'></button>
 
         <fieldset class="repeating_skills">
             <input type="text" name="attr_skillname" class="sheet-skillname" />
@@ -93,7 +93,7 @@
                 <option value="@{cha}">CHA</option>
                 <option value="@{cool}">COOL</option>
             </select>
-            <button type='roll' name='roll_skilltest' class='d10-dice' value='&{template:default} {{name=@{character_name} - @{skillname}}} {{Success Die=[[{1d10 + @{skillrank} + @{statskill}}>@{difficulty}]]}} {{Margin Dice=[[{(1+@{skillrank})d10 + @{skillrank} + @{statskill}}>@{difficulty}]]}}'></button>
+            <button type='roll' name='roll_skilltest' class='d10-dice' value='&{template:slaskill} {{skillname=@{skillname}}} {{charname=@{character_name}}} {{success=[[{1d10 + @{skillrank} + @{statskill}}>@{difficulty}]]}} {{margin=[[{(1+@{skillrank})d10 + @{skillrank} + @{statskill}}>@{difficulty}]]}}'></button>
         </fieldset>
     </div>
     <div class="sheet-traits">
@@ -120,7 +120,7 @@
         <h2>WEAPONS</h2>
         <label class="sheet-wpnnamelabel">Name</label>
         <label class="sheet-wpnskillranklabel">Skill Rank</label>
-        <label class="sheet-wpndmglabel">Dmg</label>
+        <label class="sheet-wpndmglabel">Damage</label>
         <label class="sheet-wpnmindmglabel">Min Dmg</label>
         <label class="sheet-wpnadlabel">AD</label>
         <label class="sheet-wpnweightlabel">Weight</label>
@@ -157,10 +157,12 @@
 
 <script type="text/worker">
 on("change:dex change:conc sheet:opened", function() {  
-  getAttrs(["DEX","CONC"], function(values) {
+  getAttrs(["DEX","CONC","detectRank"], function(values) {
     let dex = parseInt(values.DEX)||0;
     let conc = parseInt(values.CONC)||0;
-    let init = dex + conc;
+    let detect = parseInt(values.detectRank)||0;
+    detect = detect / 10;
+    let init = dex + conc + detect;
     setAttrs({
       "initiative": init
     });
@@ -192,11 +194,12 @@ on("change:str sheet:opened", function() {
 });
 </script>
 
-<rolltemplate class="sheet-rolltemplate-slaind">
+<rolltemplate class="sheet-rolltemplate-slaskill">
     <div class="sheet-template-container">
         <div class="sheet-template-header">{{skillname}}</div>
         <div class="sheet-template-subheader">{{charname}}</div>
         <div class="sheet-template-inner">
+            {{#success}}
             <table>
                 <tr>
                     <th>Success</th>
@@ -207,6 +210,10 @@ on("change:str sheet:opened", function() {
                     <td>{{margin}}</td>
                 </tr>
             </table>
+            {{/success}}
+            {{#initiative}}
+            <div class="sheet-rolltemplate-initvalue">{{initiative}}</div>
+            {{/initiative}}
         </div>
     </div>
 </rolltemplate>

@@ -82,6 +82,11 @@
 }
 /* Universal styling applied to all elements of these types */
 
+button[type=roll].sheet-d10-dice::before {
+    font-family: 'dicefontd10';
+    content: 'k ';
+}
+
 h2 {
     font-size: 150%;
     margin-bottom: 0px;
@@ -184,10 +189,11 @@ textarea {
 .sheet-statlabel {
     display: inline-block;
     width: 40px;
+    margin: 0px 15px 15px 0px;
 }
 
 .sheet-statinput {
-    margin: 0px 20px 0px 0px;
+    margin: 0px 20px 10px 0px;
 }
 
 .sheet-skillname {
@@ -201,15 +207,24 @@ textarea {
 
 .sheet-traitname {
     width: 350px;
+    margin: 0px 0px 10px 0px;
+}
+.sheet-traitrank {
+    margin: 0px 0px 10px 0px;
 }
 
 .sheet-drugname {
     width: 350px;
+    margin: 0px 0px 10px 0px;
+}
+.sheet-drugrank {
+    margin: 0px 0px 10px 0px;
 }
 
 .sheet-movementlabel {
     display: inline-block;
     width: 50px;
+    margin: 0px 15px 0px 0px;
 }
 
 .sheet-movementinput {
@@ -290,4 +305,43 @@ textarea {
 
 .sheet-notes {
     width: 99%;
+}
+
+/*Roll Templates*/
+.sheet-rolltemplate-slaind .sheet-template-container {
+    background-color: rgb(58, 85, 100);
+    border: 1px solid rgb(250, 250, 250);
+    border-radius: 8px;
+    margin: 1px 1px 1px 1px;
+    padding: 1px 3px 1px 3px;
+    display: block;
+}
+.sheet-rolltemplate-slaind .sheet-template-header {
+    font-size: 150%;
+    margin: 2px;
+    text-align: left;
+    color: rgb(250, 250, 250);
+}
+.sheet-rolltemplate-slaind .sheet-template-subheader {
+    margin: 2px;
+    padding-bottom: 10px;
+    font-style: italic;
+    text-align: left;
+    color: rgb(250, 250, 250);
+}
+.sheet-rolltemplate-slaind .sheet-template-inner {
+    text-align: center;
+}
+.sheet-rolltemplate-slaind table {
+    width: 100%;
+}
+.sheet-rolltemplate-slaind th {
+    padding-bottom: 5px;
+    text-align: center;
+    color: rgb(250, 250, 250);
+}
+.sheet-rolltemplate-slaind td {
+    padding-bottom: 5px;
+    text-align: center;
+    color: rgb(0, 0, 0);
 }

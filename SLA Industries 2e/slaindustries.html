@@ -41,7 +41,7 @@
         <label>Brains:</label><input type="number" name="attr_brains" /><br />
         <label>Bravado:</label><input type="number" name="attr_bravado" /><br />
         <hr />
-        <label>Initiative:</label><input type="number" name="attr_initiative" /><button type="roll" name="roll_initiative" value='&{template:default} {{name=@{character_name}}} {{Initiative=[[{1d10 + @{initiative}} &{tracker}]] }}'></button><br />
+        <label>Initiative:</label><input type="number" name="attr_initiative" readonly /><button type="roll" name="roll_initiative" class="d10-dice" value='&{template:default} {{name=@{character_name}}} {{Initiative=[[{1d10 + @{initiative}} &{tracker}]] }}'></button><br />
         <label>Luck/Flux:</label><input type="number" name="attr_luck" /><span>&nbsp;/&nbsp;</span><input type="number" name="attr_luckmax" />
         <label>Encum:</label><input type="number" name="attr_encum" /><span>&nbsp;/&nbsp;</span><input type="number" name="attr_encummax" />
     </div>
@@ -50,7 +50,7 @@
 <div class="sheet-singlerow">
     <div class="sheet-stats">
         <h2>STATS</h2>
-        <label class="sheet-statlabel">STR:</label><input class="sheet-statinput" type="number" name='attr_str' />
+        <label class="sheet-statlabel">STR:</label><input class="sheet-statinput" type="number" name='attr_str' /><input type="hidden" name='attr_meleedmg' />
         <label class="sheet-statlabel">DEX:</label><input class="sheet-statinput" type="number" name='attr_dex' />
         <label class="sheet-statlabel">KNOW:</label><input class="sheet-statinput" type="number" name='attr_know' />
         <label class="sheet-statlabel">CONC:</label><input class="sheet-statinput" type="number" name='attr_conc' />
@@ -65,22 +65,22 @@
         <label class="sheet-fixedskillname">Detect</label>
         <input type="number" name="attr_detectRank" value="0" />
         <label class="sheet-fixedskillstat">KNOW</label>
-        <button type='roll' name='roll_detecttest' value='&{template:default} {{name=@{character_name} - Detect}} {{Success Die=[[{1d10 + @{detectrank} + @{know}}>@{difficulty}]]}} {{Margin Dice=[[{(1+@{detectrank})d10 + @{detectrank} + @{know}}>@{difficulty}]]}}'></button>
+        <button type='roll' name='roll_detecttest' class='d10-dice' value='&{template:slaind} {{skillname=Detect}} {{charname=@{character_name}}} {{success=[[{1d10 + @{detectrank} + @{know}}>@{difficulty}]]}} {{margin=[[{(1+@{detectrank})d10 + @{detectrank} + @{know}}>@{difficulty}]]}}'></button>
 
         <label class="sheet-fixedskillname">Pistol</label>
         <input type="number" name="attr_pistolRank" value="0" />
         <label class="sheet-fixedskillstat">DEX</label>
-        <button type='roll' name='roll_pistoltest' value='&{template:default} {{name=@{character_name} - Pistol}} {{Success Die=[[{1d10 + @{pistolrank} + @{dex}}>10]]}} {{Margin Dice=[[{(1+@{pistolrank})d10 + @{pistolrank} + @{dex}}>10]]}}'></button>
+        <button type='roll' name='roll_pistoltest' class='d10-dice' value='&{template:default} {{name=@{character_name} - Pistol}} {{Success Die=[[{1d10 + @{pistolrank} + @{dex}}>10]]}} {{Margin Dice=[[{(1+@{pistolrank})d10 + @{pistolrank} + @{dex}}>10]]}}'></button>
 
         <label class="sheet-fixedskillname">Rifle</label>
         <input type="number" name="attr_rifleRank" value="0" />
         <label class="sheet-fixedskillstat">DEX</label>
-        <button type='roll' name='roll_rifletest' value='&{template:default} {{name=@{character_name} - Rifle}} {{Success Die=[[{1d10 + @{riflerank} + @{dex}}>10]]}} {{Margin Dice=[[{(1+@{riflerank})d10 + @{riflerank} + @{dex}}>10]]}}'></button>
+        <button type='roll' name='roll_rifletest' class='d10-dice' value='&{template:default} {{name=@{character_name} - Rifle}} {{Success Die=[[{1d10 + @{riflerank} + @{dex}}>10]]}} {{Margin Dice=[[{(1+@{riflerank})d10 + @{riflerank} + @{dex}}>10]]}}'></button>
 
         <label class="sheet-fixedskillname">Unarmed Combat</label>
         <input type="number" name="attr_unarmedcombatRank" value="0" />
         <label class="sheet-fixedskillstat">STR</label>
-        <button type='roll' name='roll_unarmedcombattest' value='&{template:default} {{name=@{character_name} - Unarmed Combat}} {{Success Die=[[{1d10 + @{unarmedcombatrank} + @{str}}>10]]}} {{Margin Dice=[[{(1+@{unarmedcombatrank})d10 + @{unarmedcombatrank} + @{str}}>10]]}}'></button>
+        <button type='roll' name='roll_unarmedcombattest' class='d10-dice' value='&{template:default} {{name=@{character_name} - Unarmed Combat}} {{Success Die=[[{1d10 + @{unarmedcombatrank} + @{str}}>10]]}} {{Margin Dice=[[{(1+@{unarmedcombatrank})d10 + @{unarmedcombatrank} + @{str}}>10]]}}'></button>
 
         <fieldset class="repeating_skills">
             <input type="text" name="attr_skillname" class="sheet-skillname" />
@@ -93,7 +93,7 @@
                 <option value="@{cha}">CHA</option>
                 <option value="@{cool}">COOL</option>
             </select>
-            <button type='roll' name='roll_skilltest' value='&{template:default} {{name=@{character_name} - @{skillname}}} {{Success Die=[[{1d10 + @{skillrank} + @{statskill}}>@{difficulty}]]}} {{Margin Dice=[[{(1+@{skillrank})d10 + @{skillrank} + @{statskill}}>@{difficulty}]]}}'></button>
+            <button type='roll' name='roll_skilltest' class='d10-dice' value='&{template:default} {{name=@{character_name} - @{skillname}}} {{Success Die=[[{1d10 + @{skillrank} + @{statskill}}>@{difficulty}]]}} {{Margin Dice=[[{(1+@{skillrank})d10 + @{skillrank} + @{statskill}}>@{difficulty}]]}}'></button>
         </fieldset>
     </div>
     <div class="sheet-traits">
@@ -131,7 +131,7 @@
         <fieldset class="repeating_weapons">
             <input class="sheet-wpnname" type="text" name="attr_wpnname" />
             <input class="sheet-wpnskillrank" type="number" name="attr_wpnskillrank" />
-            <input class="sheet-wpndmg" type="text" name="attr_wpnwpndmg" />
+            <input class="sheet-wpndmg" type="text" name="attr_wpndmg" />
             <input class="sheet-wpnmindmg" type="number" name="attr_wpnmindmg" />
             <input class="sheet-wpnad" type="number" name="attr_wpnad" />
             <input class="sheet-wpnweight" type="number" name="attr_wpnweight" />
@@ -143,7 +143,7 @@
             <input class="sheet-wpnrange" type="number" name="attr_wpnrange" />
             <input class="sheet-wpnclip" type="number" name="attr_wpnclip" />
             <input class="sheet-wpnclipcost" type="number" name="attr_wpnclipcost" />
-            <button type='roll' name='roll_wpnattack' value=""></button></button>
+            <button type="roll" name="roll_wpndamage" class="d10-dice" title="Roll Damage" value='&{template:default} {{name=@{character_name} - @{wpnname}}} {{Damage=[[{@{wpndmg} + @{meleedmg}}]]}}'></button>
         </fieldset>
     </div>
 </div>
@@ -154,3 +154,59 @@
         <textarea class="sheet-notes"></textarea>
     </div>
 </div>
+
+<script type="text/worker">
+on("change:dex change:conc sheet:opened", function() {  
+  getAttrs(["DEX","CONC"], function(values) {
+    let dex = parseInt(values.DEX)||0;
+    let conc = parseInt(values.CONC)||0;
+    let init = dex + conc;
+    setAttrs({
+      "initiative": init
+    });
+  });
+});
+
+on("change:str sheet:opened", function() {  
+  getAttrs(["STR"], function(values) {
+    let str = parseInt(values.STR)||0;
+    var dmgMod;
+    switch(str) {
+        case 5:
+            dmgMod = 1;
+            break;
+        case 6:
+            dmgMod = 2;
+            break;
+        case 7:
+            dmgMod = 3;
+            break;
+        case 8:
+            dmgMod = 4;
+            break;
+    }
+    setAttrs({
+      "meleedmg": dmgMod
+    });
+  });
+});
+</script>
+
+<rolltemplate class="sheet-rolltemplate-slaind">
+    <div class="sheet-template-container">
+        <div class="sheet-template-header">{{skillname}}</div>
+        <div class="sheet-template-subheader">{{charname}}</div>
+        <div class="sheet-template-inner">
+            <table>
+                <tr>
+                    <th>Success</th>
+                    <th>Margin</th>
+                </tr>
+                <tr>
+                    <td>{{success}}</td>
+                    <td>{{margin}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</rolltemplate>

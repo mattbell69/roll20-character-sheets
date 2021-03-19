@@ -6,13 +6,19 @@
         <label>Race:</label>
         <select class="sheet-selectrace" name="attr_race">
             <option value="0">Human</option>
-            <option value="1">Stomer</option>
-            <option value="2">Frother</option>
+            <option value="1">Frother</option>
+            <option value="2">Ebonite</option>
+            <option value="3">Stormer 313 'Malice'</option>
+            <option value="4">Stormer 711 'Xeno'</option>
+            <option value="5">Shaktar</option>
+            <option value="6">Wraithen</option>
+            <option value="7">Advanced Carrien</option>
+            <option value="8">Neophron</option>
         </select>
         <label>Package:</label><input type="text" name="attr_package" />
         <label>Squad:</label><input type="text" name="attr_squad" />
         <label>SCL:</label><input class="sheet-scl" type="text" name="attr_scl" /><br />
-        <label>LAD:</label><input type="checkbox" name="attr_lad" />
+        <label class="sheet-ladlabel">LAD:</label><input class="sheet-lad" type="checkbox" name="attr_lad" />
     </div>
     <div class="sheet-slalogo">
         <img src="https://github.com/mattbell69/roll20-character-sheets/blob/sla-industries-2e/SLA%20Industries%202e/images/slaLogo.webp?raw=true" />
@@ -41,7 +47,6 @@
         <label>Brains:</label><input type="number" name="attr_brains" /><br />
         <label>Bravado:</label><input type="number" name="attr_bravado" /><br />
         <hr />
-        <label>Initiative:</label><input type="number" name="attr_initiative" readonly /><button type="roll" name="roll_initiative" class="d10-dice" value='&{template:slaskill} {{skillname=Initiative}} {{charname=@{character_name}}} {{initiative=[[{1d10+@{initiative}} &{tracker}]] }}'></button><br />
         <label>Luck/Flux:</label><input type="number" name="attr_luck" /><span>&nbsp;/&nbsp;</span><input type="number" name="attr_luckmax" />
         <label>Encum:</label><input type="number" name="attr_encum" /><span>&nbsp;/&nbsp;</span><input type="number" name="attr_encummax" />
     </div>
@@ -56,31 +61,47 @@
         <label class="sheet-statlabel">CONC:</label><input class="sheet-statinput" type="number" name='attr_conc' />
         <label class="sheet-statlabel">CHA:</label><input class="sheet-statinput" type="number" name='attr_cha' />
         <label class="sheet-statlabel">COOL:</label><input class="sheet-statinput" type="number" name='attr_cool' />
+        <hr />
+        <h2>MOVEMENT</h2>
+        <label class="sheet-movementlabel">Closing:</label><input class="sheet-movementinput" type="number" name="attr_closing" />
+        <label class="sheet-movementlabel">Rushing:</label><input class="sheet-movementinput" type="number" name="attr_rushing" />
+        <label class="sheet-movementlabel">Initiative:</label><input class="sheet-movementinput" type="number" name="attr_initiative" readonly /><button type="roll" name="roll_initiative" class="d10-dice" value='&{template:slaskill} {{skillname=Initiative}} {{charname=@{character_name}}} {{initiative=[[{1d10+@{initiative}} &{tracker}]] }}'></button><br />
     </div>
 </div>
 
-<div class="sheet-grid-section2">
-    <div class="sheet-skills">
-        <h2>SKILLS</h2>
-        <label class="sheet-fixedskillname">Detect</label>
-        <input type="number" name="attr_detectRank" value="0" />
-        <label class="sheet-fixedskillstat">KNOW</label>
-        <button type='roll' name='roll_detecttest' class='d10-dice' value='&{template:slaskill} {{skillname=Detect}} {{charname=@{character_name}}} {{success=[[{1d10 + @{detectrank} + @{know}}>@{difficulty}]]}} {{margin=[[{(1+@{detectrank})d10 + @{detectrank} + @{know}}>@{difficulty}]]}}'></button>
+<div>
+    <button class="sheet-actionbuttons" type="action" name="act_skills" >SKILLS / WEAPONS</button>
+    <button class="sheet-actionbuttons" type="action" name="act_health" >HEALTH / ARMOUR</button>
+    <button class="sheet-actionbuttons" type="action" name="act_traits" >TRAITS / DRUGS</button>
+    <button class="sheet-actionbuttons" type="action" name="act_gear" >GEAR</button>
+    <button class="sheet-actionbuttons" type="action" name="act_notes" >NOTES</button>
+</div>
+<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab' value='skills' />
 
-        <label class="sheet-fixedskillname">Pistol</label>
-        <input type="number" name="attr_pistolRank" value="0" />
-        <label class="sheet-fixedskillstat">DEX</label>
-        <button type='roll' name='roll_pistoltest' class='d10-dice' value='&{template:slaskill} {{skillname=Pistol}} {{charname=@{character_name}}} {{success=[[{1d10 + @{pistolrank} + @{dex}}>10]]}} {{margin=[[{(1+@{pistolrank})d10 + @{pistolrank} + @{dex}}>10]]}}'></button>
+<div class='sheet-skills'>
+    <h2>SKILLS</h2>
+    <div>
+        <label class="sheet-skillnamelabel">Name</label><label class="sheet-skillranklabel">Rank</label><label class="sheet-skillstatlabel">Stat</label>
 
-        <label class="sheet-fixedskillname">Rifle</label>
-        <input type="number" name="attr_rifleRank" value="0" />
-        <label class="sheet-fixedskillstat">DEX</label>
-        <button type='roll' name='roll_rifletest' class='d10-dice' value='&{template:slaskill} {{skillname=Rifle}} {{charname=@{character_name}}} {{success=[[{1d10 + @{riflerank} + @{dex}}>10]]}} {{margin=[[{(1+@{riflerank})d10 + @{riflerank} + @{dex}}>10]]}}'></button>
+        <input class="sheet-fixedskillname" type="text" readonly value="Detect" />
+        <input class="sheet-fixedskillrank" type="number" name="attr_detectRank" value="0" />
+        <input class="sheet-fixedskillstat" type="text" readonly value="KNOW" />
+        <button type='roll' name='roll_detecttest' class='d10-dicefixed' value='&{template:slaskill} {{skillname=Detect}} {{charname=@{character_name}}} {{success=[[{1d10 + @{detectrank} + @{know}}>@{difficulty}]]}} {{margin=[[{(1+@{detectrank})d10 + @{detectrank} + @{know}}>@{difficulty}]]}}'></button>
 
-        <label class="sheet-fixedskillname">Unarmed Combat</label>
-        <input type="number" name="attr_unarmedcombatRank" value="0" />
-        <label class="sheet-fixedskillstat">STR</label>
-        <button type='roll' name='roll_unarmedcombattest' class='d10-dice' value='&{template:slaskill} {{skillname=Unarmed Combat}} {{charname=@{character_name}}} {{success=[[{1d10 + @{unarmedcombatrank} + @{str}}>10]]}} {{margin=[[{(1+@{unarmedcombatrank})d10 + @{unarmedcombatrank} + @{str}}>10]]}}'></button>
+        <input class="sheet-fixedskillname" type="text" readonly value="Pistol" />
+        <input class="sheet-fixedskillrank" type="number" name="attr_pistolRank" value="0" />
+        <input class="sheet-fixedskillstat" type="text" readonly value="DEX" />
+        <button type='roll' name='roll_pistoltest' class='d10-dicefixed' value='&{template:slaskill} {{skillname=Pistol}} {{charname=@{character_name}}} {{success=[[{1d10 + @{pistolrank} + @{dex}}>10]]}} {{margin=[[{(1+@{pistolrank})d10 + @{pistolrank} + @{dex}}>10]]}}'></button>
+
+        <input class="sheet-fixedskillname" type="text" readonly value="Rifle" />
+        <input class="sheet-fixedskillrank" type="number" name="attr_rifleRank" value="0" />
+        <input class="sheet-fixedskillstat" type="text" readonly value="DEX" />
+        <button type='roll' name='roll_rifletest' class='d10-dicefixed' value='&{template:slaskill} {{skillname=Rifle}} {{charname=@{character_name}}} {{success=[[{1d10 + @{riflerank} + @{dex}}>10]]}} {{margin=[[{(1+@{riflerank})d10 + @{riflerank} + @{dex}}>10]]}}'></button>
+
+        <input class="sheet-fixedskillname" type="text" readonly value="Unarmed Combat" />
+        <input class="sheet-fixedskillrank" type="number" name="attr_unarmedcombatRank" value="0" />
+        <input class="sheet-fixedskillstat" type="text" readonly value="STR" />
+        <button type='roll' name='roll_unarmedcombattest' class='d10-dicefixed' value='&{template:slaskill} {{skillname=Unarmed Combat}} {{charname=@{character_name}}} {{success=[[{1d10 + @{unarmedcombatrank} + @{str}}>10]]}} {{margin=[[{(1+@{unarmedcombatrank})d10 + @{unarmedcombatrank} + @{str}}>10]]}}'></button>
 
         <fieldset class="repeating_skills">
             <input type="text" name="attr_skillname" class="sheet-skillname" />
@@ -96,28 +117,9 @@
             <button type='roll' name='roll_skilltest' class='d10-dice' value='&{template:slaskill} {{skillname=@{skillname}}} {{charname=@{character_name}}} {{success=[[{1d10 + @{skillrank} + @{statskill}}>@{difficulty}]]}} {{margin=[[{(1+@{skillrank})d10 + @{skillrank} + @{statskill}}>@{difficulty}]]}}'></button>
         </fieldset>
     </div>
-    <div class="sheet-traits">
-        <h2>MOVEMENT</h2>
-        <label class="sheet-movementlabel">Closing:</label><input class="sheet-movementinput" type="number" name="attr_closing" />
-        <label class="sheet-movementlabel">Rushing:</label><input class="sheet-movementinput" type="number" name="attr_rushing" />
-        <hr />
-        <h2>TRAITS</h2>
-        <fieldset class="repeating_traits">
-            <input class="sheet-traitname" type="text" name="attr_traitname" />
-            <input class="sheet-traitrank" type="number" name="attr_traitrank" value="rank" />
-        </fieldset>
-        <hr />
-        <h2>DRUGS</h2>
-        <fieldset class="repeating_drugs">
-            <input class="sheet-drugname" type="text" name="attr_drugname" />
-            <input class="sheet-drugrank" type="number" name="attr_drugrank" value="qty" />
-        </fieldset>
-    </div>
-</div>
-
-<div class="sheet-singlerow">
-    <div class="sheet-weapons">
-        <h2>WEAPONS</h2>
+    <hr />
+    <h2>WEAPONS</h2>
+    <div>
         <label class="sheet-wpnnamelabel">Name</label>
         <label class="sheet-wpnskillranklabel">Skill Rank</label>
         <label class="sheet-wpndmglabel">Damage</label>
@@ -148,15 +150,70 @@
     </div>
 </div>
 
-<div class="sheet-singlerow">
-    <div class="sheet-notes">
-        <h2>NOTES</h2>
-        <textarea class="sheet-notes"></textarea>
+<div class='sheet-health'>
+    <h2>HEALTH</h2>
+    <div>
+        <label>Hit Points</label><input type="number" name="attr_hp" /><span>&nbsp;/&nbsp;</span><input type="number" name="attr_hpmax" />
+    </div>
+    <h3>WOUNDS</h3>
+    <div>
+        <label><input type="checkbox" name="woundhead" />Head</label>
+        <label><input type="checkbox" name="woundlarm" />Left Arm</label>
+        <label><input type="checkbox" name="woundrarm" />Right Arm</label>
+        <label><input type="checkbox" name="woundtorso" />Torso</label>
+        <label><input type="checkbox" name="woundlleg" />Left Leg</label>
+        <label><input type="checkbox" name="woundrleg" />Right Leg</label>
+    </div>
+    <hr />
+    <h2>ARMOUR</h2>
+    <div>
+        
     </div>
 </div>
 
+<div class='sheet-traits'>
+    <h2>TRAITS</h2>
+    <div>
+        <label class="sheet-traitnamelabel">Name</label><label class="sheet-traitranklabel">Rank</label>
+        <fieldset class="repeating_traits">
+            <input class="sheet-traitname" type="text" name="attr_traitname" />
+            <input class="sheet-traitrank" type="number" name="attr_traitrank" value="rank" />
+        </fieldset>
+    </div>
+    <hr />
+    <h2>DRUGS</h2>
+    <div>
+        <label class="sheet-drugnamelabel">Name</label><label class="sheet-drugqtylabel">Qty</label>
+        <fieldset class="repeating_drugs">
+            <input class="sheet-drugname" type="text" name="attr_drugname" />
+            <input class="sheet-drugrank" type="number" name="attr_drugrank" value="qty" />
+        </fieldset>
+    </div>
+</div>
+
+<div class='sheet-gear'>
+    <h2>GEAR</h2>
+    <div>
+        <label class="sheet-gearnamelabel">Name</label><label class="sheet-gearqtylabel">Qty</label>
+        <fieldset class="repeating_gear">
+            <input class="sheet-gearname" type="text" name="attr_gearname" />
+            <input class="sheet-gearrank" type="number" name="attr_gearqty" value="qty" />
+        </fieldset>
+    </div>
+</div>
+
+<div class='sheet-notes'>
+    <h2>NOTES</h2>
+    <div>
+        <textarea class="sheet-notearea" rows="30"></textarea>
+    </div>
+</div>
+
+
+
+
 <script type="text/worker">
-on("change:dex change:conc sheet:opened", function() {  
+on("change:dex change:conc change:detectRank sheet:opened", function() {  
   getAttrs(["DEX","CONC","detectRank"], function(values) {
     let dex = parseInt(values.DEX)||0;
     let conc = parseInt(values.CONC)||0;
@@ -168,6 +225,7 @@ on("change:dex change:conc sheet:opened", function() {
     });
   });
 });
+
 
 on("change:str sheet:opened", function() {  
   getAttrs(["STR"], function(values) {
@@ -191,6 +249,15 @@ on("change:str sheet:opened", function() {
       "meleedmg": dmgMod
     });
   });
+});
+
+const buttonlist = ["skills","health","traits","gear","notes"];
+buttonlist.forEach(button => {
+    on(`clicked:${button}`, function() {
+        setAttrs({
+            sheetTab: button
+        });
+    });
 });
 </script>
 

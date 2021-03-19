@@ -3,6 +3,9 @@
 .charsheet {
     background-color: rgb(58, 85, 100);
     min-width: 800px;
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+    font-size: 12px;
+    font-style: normal;
 }
 
 .sheet-singlerow {
@@ -60,7 +63,21 @@
     padding: 1px 3px 1px 3px;
 }
 
+.sheet-health {
+    border: 1px solid rgb(250, 250, 250);
+    border-radius: 8px;
+    margin: 1px 1px 1px 1px;
+    padding: 1px 3px 1px 3px;
+}
+
 .sheet-traits {
+    border: 1px solid rgb(250, 250, 250);
+    border-radius: 8px;
+    margin: 1px 1px 1px 1px;
+    padding: 1px 3px 1px 3px;
+}
+
+.sheet-drugs {
     border: 1px solid rgb(250, 250, 250);
     border-radius: 8px;
     margin: 1px 1px 1px 1px;
@@ -86,6 +103,11 @@ button[type=roll].sheet-d10-dice::before {
     font-family: 'dicefontd10';
     content: 'k ';
 }
+button[type=roll].sheet-d10-dicefixed::before {
+    font-family: 'dicefontd10';
+    content: 'k ';
+    padding: 0px 0px 20px 0px;
+}
 
 h2 {
     font-size: 150%;
@@ -97,7 +119,7 @@ h2 {
 h3 {
     font-size: 100%;
     text-align: left;
-    color: darkgray;
+    color: rgb(250, 250, 250);
 }
 
 hr {
@@ -107,7 +129,6 @@ hr {
 label {
     display: inline-block;
     width: 31%;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(250, 250, 250);
 }
 
@@ -134,7 +155,7 @@ textarea {
 
 .sheet-selectrace {
     vertical-align: top;
-    width: 120px;
+    width: 165px;
     padding: 0px;
     margin: 0.5px 0px 2px -4px;
 }
@@ -173,17 +194,51 @@ textarea {
     font-style: italic;
 }
 
-
-
-.sheet-fixedskillname {
-    width: 240px;
+/* Configure the tab buttons */
+.sheet-actionbuttons {
+    margin: 4px 10px 4px 10px;
+    display: inline-block;
 }
 
+.sheet-skills,
+.sheet-health,
+.sheet-traits,
+.sheet-gear,
+.sheet-notes {
+    display: none;
+}
+
+/* show the selected tab */
+.sheet-tabstoggle[value="skills"] ~ div.sheet-skills,
+.sheet-tabstoggle[value="health"] ~ div.sheet-health,
+.sheet-tabstoggle[value="traits"] ~ div.sheet-traits,
+.sheet-tabstoggle[value="gear"] ~ div.sheet-gear,
+.sheet-tabstoggle[value="notes"] ~ div.sheet-notes {
+    display: block;
+}
+
+
+.sheet-skillnamelabel {
+    width: 550px;
+}
+.sheet-skillranklabel {
+    width: 35px;
+}
+.sheet-skillstatlabel {
+    width: 55px;
+}
+
+.sheet-fixedskillname {
+    width: 550px;
+    margin: 0px 0px 8px 0px;
+}
+.sheet-fixedskillrank {
+    margin: 0px 0px 8px 0px;
+}
 .sheet-fixedskillstat {
     vertical-align: top;
-    width: 55px;
-    padding-left: 5px;
-    padding-top: 4px;
+    width: 70px;
+    margin: 0px 0px 8px 0px;
 }
 
 .sheet-statlabel {
@@ -197,7 +252,7 @@ textarea {
 }
 
 .sheet-skillname {
-    width: 250px;
+    width: 550px;
 }
 
 .sheet-skillstat {
@@ -205,16 +260,22 @@ textarea {
     width: 70px;
 }
 
+.sheet-traitnamelabel {
+    width: 550px;
+}
 .sheet-traitname {
-    width: 350px;
+    width: 550px;
     margin: 0px 0px 10px 0px;
 }
 .sheet-traitrank {
     margin: 0px 0px 10px 0px;
 }
 
+.sheet-drugnamelabel {
+    width: 550px;
+}
 .sheet-drugname {
-    width: 350px;
+    width: 550px;
     margin: 0px 0px 10px 0px;
 }
 .sheet-drugrank {
@@ -228,7 +289,7 @@ textarea {
 }
 
 .sheet-movementinput {
-    margin: 0px 20px 0px 0px;
+    margin: 0px 20px 5px 0px;
 }
 
 .sheet-wpnnamelabel {
@@ -302,12 +363,11 @@ textarea {
     width: 30px;
 }
 
-
-.sheet-notes {
-    width: 99%;
+.sheet-notearea {
+    width: 98%;
 }
 
-/*Roll Templates*/
+/* Roll Templates */
 .sheet-rolltemplate-slaskill .sheet-template-container {
     background-color: rgb(58, 85, 100);
     border: 1px solid rgb(250, 250, 250);
@@ -315,6 +375,8 @@ textarea {
     margin: 1px 1px 1px 1px;
     padding: 1px 3px 1px 3px;
     display: block;
+    font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
+
 }
 .sheet-rolltemplate-slaskill .sheet-template-header {
     font-size: 150%;
